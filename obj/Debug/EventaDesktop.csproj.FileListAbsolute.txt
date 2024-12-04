@@ -1,0 +1,15 @@
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.csproj.AssemblyReference.cache
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.Form1.resources
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.Properties.Resources.resources
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.csproj.GenerateResource.cache
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.csproj.CoreCompileInputs.cache
+C:\Users\Elmir\source\repos\EventaDesktop\bin\Debug\EventaDesktop.exe.config
+C:\Users\Elmir\source\repos\EventaDesktop\bin\Debug\EventaDesktop.exe
+C:\Users\Elmir\source\repos\EventaDesktop\bin\Debug\EventaDesktop.pdb
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.exe
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.pdb
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.AddEvent.resources
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.MainForm.resources
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.RegisterForm.resources
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.Dashboard.resources
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.ViewEvents.resources
