@@ -11,23 +11,13 @@ using System.Data.SqlClient;
 
 namespace EventManagementSystem
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         SqlConnection connect
             = new SqlConnection(@"Data Source=LAPTOP-0VTIUPTU\SQLEXPRESS;Initial Catalog=Eventa;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -44,13 +34,15 @@ namespace EventManagementSystem
 
         private void login_showPass_CheckedChanged(object sender, EventArgs e)
         {
-            login_password.PasswordChar = login_showPass.Checked ? '\0' : '*';
+            login_password_input.PasswordChar = login_showPass_checkbox.Checked ? '\0' : '*';
         }
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            if(login_email.Text.Trim() == ""
-                || login_password.Text.Trim() == "")
+            String email = login_email_input.Text.Trim();
+            String password = login_password_input.Text.Trim();
+            if (string.IsNullOrWhiteSpace(email)
+                || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Please fill all blank fields"
                     , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -62,24 +54,26 @@ namespace EventManagementSystem
                     try
                     {
                         connect.Open();
-
+                        //Check if there is a record like that
                         string selectData = "SELECT * FROM users WHERE email = @email " +
                             "AND password = @password";
 
                         using(SqlCommand cmd = new SqlCommand(selectData, connect))
                         {
-                            cmd.Parameters.AddWithValue("@email", login_email.Text.Trim());
-                            cmd.Parameters.AddWithValue("@password", login_password.Text.Trim());
+                            cmd.Parameters.AddWithValue("@email", email);
+                            cmd.Parameters.AddWithValue("@password", password);
 
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
 
+                            //Success
                             if(table.Rows.Count >= 1)
                             {
                                 MessageBox.Show("Login successfully!"
                                     , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                                //Go to main form and close this one
                                 MainForm mForm = new MainForm();
                                 mForm.Show();
                                 this.Hide();
@@ -103,26 +97,6 @@ namespace EventManagementSystem
                 }
                 
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

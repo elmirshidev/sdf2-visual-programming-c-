@@ -48,7 +48,7 @@ namespace EventManagementSystem
 
             if(check == DialogResult.Yes)
             {
-                Form1 loginForm = new Form1();
+                LoginForm loginForm = new LoginForm();
                 loginForm.Show();
                 this.Hide();
             }

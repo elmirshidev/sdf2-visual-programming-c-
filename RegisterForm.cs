@@ -27,29 +27,24 @@ namespace EventManagementSystem
 
         private void signup_loginBtn_Click(object sender, EventArgs e)
         {
-            Form1 loginForm = new Form1();
+            LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Hide();
         }
 
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void signup_btn_Click(object sender, EventArgs e)
         {
-            if(
-                signup_username.Text.Trim() == ""
-                || signup_password.Text.Trim() == "" ||
-                signup_email.Text.Trim() == ""
+            var email = email_input.Text.Trim();
+            var username = username_input.Text.Trim();
+            var password = password_input.Text.Trim();
+            if (
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password)
                 )
             {
                 MessageBox.Show("Please fill all blank fields"
                     , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MainForm mainForm = new MainForm();
-                //mainForm.Show();
-                //this.Hide();
             }
             else
             {
@@ -63,16 +58,18 @@ namespace EventManagementSystem
 
                         using(SqlCommand checkUser = new SqlCommand(selectEmail, connect))
                         {
-                            checkUser.Parameters.AddWithValue("@email", signup_email.Text.Trim());
+                            checkUser.Parameters.AddWithValue("@email", email);
                             int count = (int)checkUser.ExecuteScalar();
 
+                            //Success,means already taken
                             if(count >= 1)
                             {
-                                MessageBox.Show(signup_email.Text.Trim() + " is already taken"
+                                MessageBox.Show(email + " is already taken"
                                     , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                             {
+                                //Create new record
                                 DateTime ts = DateTime.Now;
 
                                 string insertData = "INSERT INTO users " +
@@ -81,17 +78,18 @@ namespace EventManagementSystem
 
                                 using (SqlCommand cmd = new SqlCommand(insertData, connect))
                                 {
-                                    cmd.Parameters.AddWithValue("@email", signup_email.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@username", signup_username.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@password", signup_password.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@email", email);
+                                    cmd.Parameters.AddWithValue("@username", username);
+                                    cmd.Parameters.AddWithValue("@password", password);
                                     cmd.Parameters.AddWithValue("@dateReg", ts);
 
+                                    //Insert new user into database
                                     cmd.ExecuteNonQuery();
 
                                     MessageBox.Show("Registered successfully!"
                                         , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                    Form1 loginForm = new Form1();
+                                    LoginForm loginForm = new LoginForm();
                                     loginForm.Show();
                                     this.Hide();
                                 }
@@ -115,32 +113,8 @@ namespace EventManagementSystem
 
         private void signup_showPass_CheckedChanged(object sender, EventArgs e)
         {
-            signup_password.PasswordChar = signup_showPass.Checked ? '\0' : '*';
+            password_input.PasswordChar = register_showPassword_checkbox.Checked ? '\0' : '*';
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void signup_username_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
