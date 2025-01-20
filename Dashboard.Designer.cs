@@ -44,7 +44,7 @@ namespace EventManagementSystem
             this.totalEvents_count = new System.Windows.Forms.Label();
             this.totalEvents_panel_text = new System.Windows.Forms.Label();
             this.totalEvents_panel_img = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.atdsGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +61,7 @@ namespace EventManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.totalAtds_panel_img)).BeginInit();
             this.totalEvents_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.totalEvents_panel_img)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atdsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventattendeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet)).BeginInit();
@@ -209,13 +209,13 @@ namespace EventManagementSystem
             this.totalEvents_panel_img.TabIndex = 0;
             this.totalEvents_panel_img.TabStop = false;
             // 
-            // dataGridView1
+            // atdsGridView
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.atdsGridView.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
+            this.atdsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.atdsGridView.AutoGenerateColumns = false;
+            this.atdsGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -223,22 +223,21 @@ namespace EventManagementSystem
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.atdsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.atdsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.atdsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.eventidDataGridViewTextBoxColumn,
             this.useridDataGridViewTextBoxColumn,
             this.registeredatDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.eventattendeesBindingSource;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
-            this.dataGridView1.Location = new System.Drawing.Point(507, 66);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(553, 576);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.atdsGridView.DataSource = this.eventattendeesBindingSource;
+            this.atdsGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
+            this.atdsGridView.Location = new System.Drawing.Point(507, 66);
+            this.atdsGridView.Name = "atdsGridView";
+            this.atdsGridView.RowHeadersWidth = 51;
+            this.atdsGridView.RowTemplate.Height = 24;
+            this.atdsGridView.Size = new System.Drawing.Size(553, 576);
+            this.atdsGridView.TabIndex = 3;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -306,7 +305,7 @@ namespace EventManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.atdsGridView);
             this.Controls.Add(this.totalIncome_panel);
             this.Controls.Add(this.totalEvents_panel);
             this.Controls.Add(this.totalAtds_panel);
@@ -322,7 +321,7 @@ namespace EventManagementSystem
             this.totalEvents_panel.ResumeLayout(false);
             this.totalEvents_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.totalEvents_panel_img)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atdsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventattendeesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet)).EndInit();
@@ -344,7 +343,7 @@ namespace EventManagementSystem
         private System.Windows.Forms.Label totalAtds_panel_text;
         private System.Windows.Forms.Label totalEvents_count;
         private System.Windows.Forms.Label totalEvents_panel_text;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView atdsGridView;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private EventaDesktop.EventaDataSet eventaDataSet;
         private EventaDesktop.EventaDataSetTableAdapters.usersTableAdapter usersTableAdapter;

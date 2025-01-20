@@ -23,20 +23,12 @@ namespace EventManagementSystem
         {
             InitializeComponent();
 
-            //EXECUTE THIS FUNCTION AS SOON AS THE CONTROL LOADS
-            this.Load += AddEvent_Load;
 
             // TO DISPLAY THE DATA FROM DATABASE TO DATA GRID VIEW
             displayEventsData();
         }
 
 
-        //SET DATE'S DATA
-        private void AddEvent_Load(object sender, EventArgs e)
-        {
-            eventSDate_input.MinDate = DateTime.Now;
-            eventEDate_input.MinDate = DateTime.Now.AddHours(3);
-        }
         
 
         //REFRESH DATA
@@ -129,37 +121,57 @@ namespace EventManagementSystem
                                     "(name, description, location, start_time, end_time, created_by, image, price)" +
                                     "VALUES(@evName, @evDesc, @evLoc, @evST, @evET, @userId, @evImg, @evPrice)";
 
-                                string path = Path.Combine(@"C:\Users\Elmir\source\repos\EventaDesktop\Directory\"
-                                    + eventName + ".jpg");
 
-                                string directoryPath = Path.GetDirectoryName(path);
-
-                                if (!Directory.Exists(directoryPath))
+                                // Use a relative directory path within the application's working directory
+                                string baseDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EventImages");
+                                string imagePath = Path.Combine(baseDirectory, eventName + ".jpg");
+                                // Ensure the directory exists
+                                if (!Directory.Exists(baseDirectory))
                                 {
-                                    Directory.CreateDirectory(directoryPath);
+                                    Directory.CreateDirectory(baseDirectory);
                                 }
 
-                                File.Copy(eventPhoto.ImageLocation, path, true);
+                                // Ensure the image path is valid before copying
+                                if (!string.IsNullOrEmpty(eventPhoto.ImageLocation) && File.Exists(eventPhoto.ImageLocation))
+                                {
+                                    try
+                                    {
+                                        // Copy the image to the directory
+                                        File.Copy(eventPhoto.ImageLocation, imagePath, true);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show($"Error copying image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Image location is invalid or image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
 
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                                }
+
+                            using (SqlCommand cmd = new SqlCommand(insertData, connect))
                                 {
                                     cmd.Parameters.AddWithValue("@evName", eventName);
                                     cmd.Parameters.AddWithValue("@evDesc", eventDesc);
                                     cmd.Parameters.AddWithValue("@evLoc", eventLocation);
                                     cmd.Parameters.AddWithValue("@evST", sDate);
                                     cmd.Parameters.AddWithValue("@evET", eDate);
-                                    cmd.Parameters.AddWithValue("@userId", 1);
-                                    cmd.Parameters.AddWithValue("@evImg", path);
+                                    cmd.Parameters.AddWithValue("@userId", UserData.UserId);
+                                    cmd.Parameters.AddWithValue("@evImg", imagePath);
                                     cmd.Parameters.AddWithValue("@evPrice", eventPrice);
 
                                     cmd.ExecuteNonQuery();
 
-                                    displayEventsData();
+                                    
 
                                     MessageBox.Show("Added successfully!"
                                         , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     clearFields();
+                                    RefreshData();
                                 }
                             }
                         }
@@ -206,22 +218,36 @@ namespace EventManagementSystem
                     eventName_input.Text = row.Cells[1].Value.ToString();
                     eventDesc_input.Text = row.Cells[2].Value.ToString();
                     eventLocation_input.Text = row.Cells[3].Value.ToString();
-                    eventSDate_input.Text = row.Cells[4].Value.ToString();
-                    eventEDate_input.Text = row.Cells[5].Value.ToString();
-                    string imagePath = row.Cells[6].Value.ToString();
+                    // Try to parse the value as DateTime
+                    if (row.Cells[4].Value != DBNull.Value && DateTime.TryParse(row.Cells[4].Value.ToString(), out DateTime startDate))
+                    {
+                        eventSDate_input.Value = startDate;
+                    }
+
+                    if (row.Cells[5].Value != DBNull.Value && DateTime.TryParse(row.Cells[5].Value.ToString(), out DateTime endDate))
+                    {
+                        eventEDate_input.Value = endDate;
+                    }
+                   
                     eventPrice_input.Text = row.Cells[7].Value.ToString();
 
-                    if (imagePath != null)
+                    string relativeImagePath = row.Cells[6].Value.ToString(); // Assuming the relative path stored is like "Directory\\event.jpg"
+                    string baseDirectory = AppDomain.CurrentDomain.BaseDirectory; // The directory where the app is running from
+
+                    string fullImagePath = Path.Combine(baseDirectory, relativeImagePath);
+
+                    if (File.Exists(fullImagePath))
                     {
-                        eventPhoto.Image = Image.FromFile(imagePath);
+                        eventPhoto.Image = Image.FromFile(fullImagePath);
                     }
                     else
                     {
+                        MessageBox.Show("Image file not found: " + fullImagePath, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         eventPhoto.Image = null;
                     }
 
-                }
             }
+        }
 
 
             //CLEAR ALL FIELDS
@@ -233,6 +259,7 @@ namespace EventManagementSystem
                 eventSDate_input.MinDate = DateTime.Now;
                 eventEDate_input.MinDate = DateTime.Now.AddHours(3);
                 eventPhoto.Image = null;
+                eventPrice_input.Text = "";
             }
 
             private void addEvent_updateBtn_Click(object sender, EventArgs e)
@@ -263,9 +290,7 @@ namespace EventManagementSystem
                         connect.Open();
                         DateTime today = DateTime.Today;
 
-                    //string insertData = "INSERT INTO events " +
-                    //                "(name, description, location, start_time, end_time, created_by, image, price)" +
-                    //                "VALUES(@evName, @evDesc, @evLoc, @evST, @evET, @userId, @evImg, @evPrice)";
+            
 
                         string updateData = "UPDATE events SET name = @evName" +
                             ", description = @evDesc, location = @evLoc" +
@@ -297,12 +322,12 @@ namespace EventManagementSystem
 
                             cmd.ExecuteNonQuery();
 
-                            displayEventsData();
 
                             MessageBox.Show("Updated successfully!"
                                 , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             clearFields();
+                            RefreshData();
                         }
                     }
                     catch (Exception ex)

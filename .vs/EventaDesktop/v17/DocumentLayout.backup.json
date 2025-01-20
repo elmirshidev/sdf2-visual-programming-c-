@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\addevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:addevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\addevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:addevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -27,16 +31,20 @@
       "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\addevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:addevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\addevent.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:addevent.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3287EC61-63AE-46EB-B01B-645D749D2E33}|EventaDesktop.csproj|c:\\users\\elmir\\source\\repos\\eventadesktop\\validationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,11 +58,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dashboard.cs",
+              "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\Dashboard.cs",
+              "RelativeDocumentMoniker": "Dashboard.cs",
+              "ToolTip": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\Dashboard.cs",
+              "RelativeToolTip": "Dashboard.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAhwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T20:05:01.32Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AddEvent.cs",
+              "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\AddEvent.cs",
+              "RelativeDocumentMoniker": "AddEvent.cs",
+              "ToolTip": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\AddEvent.cs*",
+              "RelativeToolTip": "AddEvent.cs*",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAlwNEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T18:14:02.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\Dashboard.cs",
+              "RelativeDocumentMoniker": "Dashboard.cs",
+              "ToolTip": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\Dashboard.cs [Design]",
+              "RelativeToolTip": "Dashboard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T20:10:17.183Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\LoginForm.cs",
               "RelativeDocumentMoniker": "LoginForm.cs",
@@ -67,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\LoginForm.cs",
               "RelativeDocumentMoniker": "LoginForm.cs",
@@ -79,46 +129,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UserData.cs",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\UserData.cs",
               "RelativeDocumentMoniker": "UserData.cs",
               "ToolTip": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\UserData.cs",
               "RelativeToolTip": "UserData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T19:49:38.371Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAApwBAAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAApwBEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T17:55:59.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddEvent.cs",
-              "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\AddEvent.cs",
-              "RelativeDocumentMoniker": "AddEvent.cs",
-              "ToolTip": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\AddEvent.cs*",
-              "RelativeToolTip": "AddEvent.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:14:02.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "AddEvent.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\AddEvent.cs",
               "RelativeDocumentMoniker": "AddEvent.cs",
@@ -130,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "AddEvent.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\AddEvent.Designer.cs",
               "RelativeDocumentMoniker": "AddEvent.Designer.cs",
@@ -143,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -155,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "MainForm.Designer.cs",
@@ -167,12 +204,8 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ValidationHelper.cs",
               "DocumentMoniker": "C:\\Users\\Elmir\\source\\repos\\EventaDesktop\\ValidationHelper.cs",
               "RelativeDocumentMoniker": "ValidationHelper.cs",
