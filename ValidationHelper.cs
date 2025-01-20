@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -82,6 +83,56 @@ namespace EventaDesktop
 
             return true;
         }
+
+        public static bool ValidateEventDetails(
+            string eventName,
+            string eventDescription,
+            string eventLocation,
+            Image eventPhoto,
+            string startDate,
+            string endDate,
+            string eventPrice,
+            out string errorMessage
+            )
+        {
+            errorMessage = string.Empty;
+
+            // Check for empty fields
+            if (string.IsNullOrWhiteSpace(eventName) ||
+                string.IsNullOrWhiteSpace(eventDescription) ||
+                string.IsNullOrWhiteSpace(eventLocation) ||
+                eventPhoto == null ||
+                string.IsNullOrWhiteSpace(eventPrice))
+            {
+                errorMessage = "Please fill all blank fields.";
+                return false;
+            }
+
+            // Validate date comparison
+            if (!DateTime.TryParse(startDate, out DateTime startDateParsed) ||
+                !DateTime.TryParse(endDate, out DateTime endDateParsed))
+            {
+                errorMessage = "Enter valid start and end dates.";
+                return false;
+            }
+
+            if (DateTime.Compare(startDateParsed, endDateParsed) >= 0)
+            {
+                errorMessage = "Start Date can't be equal or after the End Date.";
+                return false;
+            }
+
+            // Validate price
+            if (!float.TryParse(eventPrice, out float price) || price < 0)
+            {
+                errorMessage = "Enter a valid price greater than or equal to zero.";
+                return false;
+            }
+
+            // If everything is valid
+            return true;
+        }
+
 
     }
 }
