@@ -76,8 +76,11 @@ namespace EventManagementSystem
                         //Success
                         if (table.Rows.Count >= 1)
                         {
-                            MessageBox.Show("Login successfully!"
-                                , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UserData.UserId = Convert.ToInt32(table.Rows[0]["id"]);
+                            UserData.Username = table.Rows[0]["username"].ToString();
+                            UserData.Email = table.Rows[0]["email"].ToString();
+
+                            MessageBox.Show($"Welcome, {UserData.Username}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             //Go to main form and close this one
                             MainForm mForm = new MainForm();

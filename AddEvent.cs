@@ -17,7 +17,7 @@ namespace EventManagementSystem
 {
     public partial class AddEvent : UserControl
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WINDOWS 10\Documents\employee.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connect = new SqlConnection(@"Data Source=LAPTOP-0VTIUPTU\SQLEXPRESS;Initial Catalog=Eventa;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
 
         public AddEvent()
         {
@@ -62,7 +62,7 @@ namespace EventManagementSystem
                     string getAllEventsQuery = "SELECT * FROM events WHERE created_by = @userId";
                     using (SqlCommand getAllEvents = new SqlCommand(getAllEventsQuery, connect))
                     {
-                        getAllEvents.Parameters.AddWithValue("@userId", 1);
+                        getAllEvents.Parameters.AddWithValue("@userId", UserData.UserId);
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(getAllEvents))
                         {
@@ -267,24 +267,37 @@ namespace EventManagementSystem
                     //                "(name, description, location, start_time, end_time, created_by, image, price)" +
                     //                "VALUES(@evName, @evDesc, @evLoc, @evST, @evET, @userId, @evImg, @evPrice)";
 
-                    string updateData = "UPDATE events SET name = @evName" +
+                        string updateData = "UPDATE events SET name = @evName" +
                             ", description = @evDesc, location = @evLoc" +
                             ", start_time = @evST, end_time = @evET, image = @evImg, price = @evPrice" +
                             "WHERE id = @evId";
 
-                        using (SqlCommand cmd = new SqlCommand(updateData, connect))
+                        string path = Path.Combine(@"C:\Users\Elmir\source\repos\EventaDesktop\Directory\"
+                                        + eventName + ".jpg");
+
+                        string directoryPath = Path.GetDirectoryName(path);
+
+                        if (!Directory.Exists(directoryPath))
                         {
-                            //cmd.Parameters.AddWithValue("@fullName", addEvent_description.Text.Trim());
-                            //cmd.Parameters.AddWithValue("@gender", addEvent_gender.Text.Trim());
-                            //cmd.Parameters.AddWithValue("@contactNum", addEvent_location.Text.Trim());
-                            //cmd.Parameters.AddWithValue("@position", addEvent_position.Text.Trim());
-                            //cmd.Parameters.AddWithValue("@updateDate", today);
-                            //cmd.Parameters.AddWithValue("@status", addEvent_status.Text.Trim());
-                            //cmd.Parameters.AddWithValue("@employeeID", addEvent_eventName.Text.Trim());
+                            Directory.CreateDirectory(directoryPath);
+                        }
+
+                        File.Copy(eventPhoto.ImageLocation, path, true);
+
+                    using (SqlCommand cmd = new SqlCommand(updateData, connect))
+                        {
+                            cmd.Parameters.AddWithValue("@evName", eventName);
+                            cmd.Parameters.AddWithValue("@evDesc", eventDesc);
+                            cmd.Parameters.AddWithValue("@evLoc", eventLocation);
+                            cmd.Parameters.AddWithValue("@evST", sDate);
+                            cmd.Parameters.AddWithValue("@evET", eDate);
+                            cmd.Parameters.AddWithValue("@evImg", path);
+                            cmd.Parameters.AddWithValue("@evPrice", eventPrice);
+                            cmd.Parameters.AddWithValue("@evId", 1);
 
                             cmd.ExecuteNonQuery();
 
-                            displayEmployeeData();
+                            displayEventsData();
 
                             MessageBox.Show("Updated successfully!"
                                 , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -347,7 +360,7 @@ namespace EventManagementSystem
 
                                 cmd.ExecuteNonQuery();
 
-                                displayEmployeeData();
+                                displayEventsData();
 
                                 MessageBox.Show("Update successfully!"
                                     , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
