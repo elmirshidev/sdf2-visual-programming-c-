@@ -57,7 +57,7 @@
     <Compile Include="AddEvent.Designer.cs">
       <DependentUpon>AddEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ValidationHelper.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EventaDesktop;
 
 namespace EventManagementSystem
 {
@@ -37,78 +38,87 @@ namespace EventManagementSystem
             var email = email_input.Text.Trim();
             var username = username_input.Text.Trim();
             var password = password_input.Text.Trim();
-            if (
-                string.IsNullOrWhiteSpace(email) ||
-                string.IsNullOrWhiteSpace(username) ||
-                string.IsNullOrWhiteSpace(password)
-                )
+            if (!ValidationHelper.IsValidEmail(email, out string emailError))
             {
-                MessageBox.Show("Please fill all blank fields"
-                    , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(emailError, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            if (!ValidationHelper.IsValidUsername(username, out string usernameError))
             {
-                if(connect.State != ConnectionState.Open)
+                MessageBox.Show(usernameError, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!ValidationHelper.IsValidPassword(password, out string passwordError))
+            {
+                MessageBox.Show(passwordError, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            if (connect.State != ConnectionState.Open)
+            {
+                try
                 {
-                    try
+                    connect.Open();
+                    // TO CHECK IF THE USER IS EXISTING ALREADY
+                    string selectEmail = "SELECT COUNT(id) FROM users WHERE email = @email";
+
+                    using (SqlCommand checkUser = new SqlCommand(selectEmail, connect))
                     {
-                        connect.Open();
-                        // TO CHECK IF THE USER IS EXISTING ALREADY
-                        string selectEmail = "SELECT COUNT(id) FROM users WHERE email = @email";
+                        checkUser.Parameters.AddWithValue("@email", email);
+                        int count = (int)checkUser.ExecuteScalar();
 
-                        using(SqlCommand checkUser = new SqlCommand(selectEmail, connect))
+                        //Success,means already taken
+                        if (count >= 1)
                         {
-                            checkUser.Parameters.AddWithValue("@email", email);
-                            int count = (int)checkUser.ExecuteScalar();
+                            MessageBox.Show(email + " is already taken"
+                                , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            //Create new record
+                            DateTime ts = DateTime.Now;
 
-                            //Success,means already taken
-                            if(count >= 1)
+                            string insertData = "INSERT INTO users " +
+                                "(email, username, password, created_at) " +
+                                "VALUES(@email, @username, @password, @dateReg)";
+
+                            using (SqlCommand cmd = new SqlCommand(insertData, connect))
                             {
-                                MessageBox.Show(email + " is already taken"
-                                    , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                //Create new record
-                                DateTime ts = DateTime.Now;
+                                cmd.Parameters.AddWithValue("@email", email);
+                                cmd.Parameters.AddWithValue("@username", username);
+                                cmd.Parameters.AddWithValue("@password", password);
+                                cmd.Parameters.AddWithValue("@dateReg", ts);
 
-                                string insertData = "INSERT INTO users " +
-                                    "(email, username, password, created_at) " +
-                                    "VALUES(@email, @username, @password, @dateReg)";
+                                //Insert new user into database
+                                cmd.ExecuteNonQuery();
 
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
-                                {
-                                    cmd.Parameters.AddWithValue("@email", email);
-                                    cmd.Parameters.AddWithValue("@username", username);
-                                    cmd.Parameters.AddWithValue("@password", password);
-                                    cmd.Parameters.AddWithValue("@dateReg", ts);
+                                MessageBox.Show("Registered successfully!"
+                                    , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                    //Insert new user into database
-                                    cmd.ExecuteNonQuery();
-
-                                    MessageBox.Show("Registered successfully!"
-                                        , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    LoginForm loginForm = new LoginForm();
-                                    loginForm.Show();
-                                    this.Hide();
-                                }
+                                LoginForm loginForm = new LoginForm();
+                                loginForm.Show();
+                                this.Hide();
                             }
                         }
-
-                        
-
-                    }catch(Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex
-                    , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    finally
-                    {
-                        connect.Close();
-                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex
+                , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connect.Close();
                 }
             }
+
         }
 
         private void signup_showPass_CheckedChanged(object sender, EventArgs e)
