@@ -28,8 +28,8 @@ namespace EventManagementSystem
 
         private void AddEvent_Load(object sender, EventArgs e)
         {
-            addEvent_startDate.MinDate = DateTime.Now;
-            addEvent_endDate.MinDate = DateTime.Now.AddHours(3);       
+            eventSDate_input.MinDate = DateTime.Now;
+            eventEDate_input.MinDate = DateTime.Now.AddHours(3);       
         }
 
         public void RefreshData()
@@ -52,18 +52,18 @@ namespace EventManagementSystem
 
         private bool eventDetailsValidation()
         {
-            if (addEvent_eventName.Text.Trim() == ""
-                || addEvent_description.Text.Trim() == ""
-                || addEvent_location.Text.Trim() == ""
-                || addEvent_picture.Image == null
-                || addEvent_price.Text.Trim() == ""
+            if (eventName_input.Text.Trim() == ""
+                || eventDesc_input.Text.Trim() == ""
+                || eventLocation_input.Text.Trim() == ""
+                || eventPhoto.Image == null
+                || eventPrice_input.Text.Trim() == ""
              )
             {
                 MessageBox.Show("Please fill all blank fields"
                     , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            int diff = DateTime.Compare(DateTime.Parse(addEvent_startDate.Text), DateTime.Parse(addEvent_endDate.Text));
+            int diff = DateTime.Compare(DateTime.Parse(eventSDate_input.Text), DateTime.Parse(eventEDate_input.Text));
             if (diff >= 0)
             {
                 MessageBox.Show("Start Date can't be equal or after the End Date"
@@ -71,7 +71,7 @@ namespace EventManagementSystem
                 return false;
             }
 
-            string priceText = addEvent_price.Text.Trim();
+            string priceText = eventPrice_input.Text.Trim();
             bool convertSuccess = float.TryParse(priceText, out float price);
 
             if (!convertSuccess)
@@ -102,12 +102,12 @@ namespace EventManagementSystem
 
                     using (SqlCommand checkEv = new SqlCommand(checkEvName, connect))
                     {
-                        checkEv.Parameters.AddWithValue("@evName", addEvent_eventName.Text.Trim());
+                        checkEv.Parameters.AddWithValue("@evName", eventName_input.Text.Trim());
                         int count = (int)checkEv.ExecuteScalar();
 
                         if (count >= 1)
                         {
-                            MessageBox.Show(addEvent_eventName.Text.Trim() + " is already taken"
+                            MessageBox.Show(eventName_input.Text.Trim() + " is already taken"
                                 , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
@@ -118,7 +118,7 @@ namespace EventManagementSystem
                                 "VALUES(@evName, @evDesc, @evLoc, @evST, @evET, @evImg, @evPrice)";
 
                             string path = Path.Combine(@"C:\Users\Elmir\source\repos\EventaDesktop\Directory\"
-                                + addEvent_eventName.Text.Trim() + ".jpg");
+                                + eventName_input.Text.Trim() + ".jpg");
 
                             string directoryPath = Path.GetDirectoryName(path);
 
@@ -127,15 +127,15 @@ namespace EventManagementSystem
                                 Directory.CreateDirectory(directoryPath);
                             }
 
-                            File.Copy(addEvent_picture.ImageLocation, path, true);
+                            File.Copy(eventPhoto.ImageLocation, path, true);
 
                             using (SqlCommand cmd = new SqlCommand(insertData, connect))
                             {
-                                cmd.Parameters.AddWithValue("@evName", addEvent_eventName.Text.Trim());
-                                cmd.Parameters.AddWithValue("@evDesc", addEvent_description.Text.Trim());
-                                cmd.Parameters.AddWithValue("@evLoc", addEvent_location.Text.Trim());
-                                cmd.Parameters.AddWithValue("@evST", DateTime.Parse(addEvent_startDate.Text));
-                                cmd.Parameters.AddWithValue("@evET", DateTime.Parse(addEvent_endDate.Text));
+                                cmd.Parameters.AddWithValue("@evName", eventName_input.Text.Trim());
+                                cmd.Parameters.AddWithValue("@evDesc", eventDesc_input.Text.Trim());
+                                cmd.Parameters.AddWithValue("@evLoc", eventLocation_input.Text.Trim());
+                                cmd.Parameters.AddWithValue("@evST", DateTime.Parse(eventSDate_input.Text));
+                                cmd.Parameters.AddWithValue("@evET", DateTime.Parse(eventEDate_input.Text));
                                 cmd.Parameters.AddWithValue("@evImg", path);
 
                                 cmd.ExecuteNonQuery();
@@ -172,7 +172,7 @@ namespace EventManagementSystem
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     imagePath = dialog.FileName;
-                    addEvent_picture.ImageLocation = imagePath;
+                    eventPhoto.ImageLocation = imagePath;
                 }
             }
             catch(Exception ex)
@@ -186,22 +186,22 @@ namespace EventManagementSystem
         {
             if(e.RowIndex != -1)
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                addEvent_eventName.Text = row.Cells[1].Value.ToString();
-                addEvent_description.Text = row.Cells[2].Value.ToString();
-                addEvent_location.Text = row.Cells[3].Value.ToString();
-                addEvent_startDate.Text = row.Cells[4].Value.ToString();
-                addEvent_endDate.Text = row.Cells[5].Value.ToString();
+                DataGridViewRow row = eventsDataGrid.Rows[e.RowIndex];
+                eventName_input.Text = row.Cells[1].Value.ToString();
+                eventDesc_input.Text = row.Cells[2].Value.ToString();
+                eventLocation_input.Text = row.Cells[3].Value.ToString();
+                eventSDate_input.Text = row.Cells[4].Value.ToString();
+                eventEDate_input.Text = row.Cells[5].Value.ToString();
                 string imagePath = row.Cells[6].Value.ToString();
-                addEvent_price.Text = row.Cells [7].Value.ToString();
+                eventPrice_input.Text = row.Cells [7].Value.ToString();
 
                 if(imagePath != null)
                 {
-                    addEvent_picture.Image = Image.FromFile(imagePath);
+                    eventPhoto.Image = Image.FromFile(imagePath);
                 }
                 else
                 {
-                    addEvent_picture.Image = null;
+                    eventPhoto.Image = null;
                 }
 
             }
@@ -209,12 +209,12 @@ namespace EventManagementSystem
 
         public void clearFields()
         {
-            addEvent_eventName.Text = "";
-            addEvent_description.Text = "";
-            addEvent_location.Text = "";
-            addEvent_startDate.MinDate = DateTime.Now;
-            addEvent_endDate.MinDate = DateTime.Now.AddHours(3);
-            addEvent_picture.Image = null;
+            eventName_input.Text = "";
+            eventDesc_input.Text = "";
+            eventLocation_input.Text = "";
+            eventSDate_input.MinDate = DateTime.Now;
+            eventEDate_input.MinDate = DateTime.Now.AddHours(3);
+            eventPhoto.Image = null;
         }
 
         private void addEvent_updateBtn_Click(object sender, EventArgs e)
@@ -222,7 +222,7 @@ namespace EventManagementSystem
             if (!eventDetailsValidation()) return;
 
             DialogResult check = MessageBox.Show("Are you sure you want to UPDATE " +
-                    "Employee ID: " + addEvent_eventName.Text.Trim() + "?", "Confirmation Message"
+                    "Employee ID: " + eventName_input.Text.Trim() + "?", "Confirmation Message"
                     , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (check == DialogResult.Yes)
@@ -281,10 +281,10 @@ namespace EventManagementSystem
 
         private void addEvent_deleteBtn_Click(object sender, EventArgs e)
         {
-            if (addEvent_eventName.Text == ""
-                || addEvent_description.Text == ""
-                || addEvent_location.Text == ""
-                || addEvent_picture.Image == null)
+            if (eventName_input.Text == ""
+                || eventDesc_input.Text == ""
+                || eventLocation_input.Text == ""
+                || eventPhoto.Image == null)
             {
                 MessageBox.Show("Please fill all blank fields"
                     , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -292,7 +292,7 @@ namespace EventManagementSystem
             else
             {
                 DialogResult check = MessageBox.Show("Are you sure you want to DELETE " +
-                    "Employee ID: " + addEvent_eventName.Text.Trim() + "?", "Confirmation Message"
+                    "Employee ID: " + eventName_input.Text.Trim() + "?", "Confirmation Message"
                     , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (check == DialogResult.Yes)
@@ -308,7 +308,7 @@ namespace EventManagementSystem
                         using (SqlCommand cmd = new SqlCommand(updateData, connect))
                         {
                             cmd.Parameters.AddWithValue("@deleteDate", today);
-                            cmd.Parameters.AddWithValue("@employeeID", addEvent_eventName.Text.Trim());
+                            cmd.Parameters.AddWithValue("@employeeID", eventName_input.Text.Trim());
 
                             cmd.ExecuteNonQuery();
 
@@ -339,39 +339,5 @@ namespace EventManagementSystem
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addEvent_picture_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddEvent_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

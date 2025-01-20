@@ -26,13 +26,18 @@ namespace EventManagementSystem
             addEventControl = new AddEvent();
             viewEventsControl = new ViewEvents();
 
+            //default open panel is dashboard control
+            mainForm_panel.Controls.Add(dashboardControl);
+
         }
 
+        //helper function for removing current panel and adding requested one
         private void LoadUserControl(UserControl userControl)
         {
-            panel3.Controls.Clear();
+            mainForm_panel.Controls.Clear();
+            //fill parent's available size
             userControl.Dock = DockStyle.Fill;
-            panel3.Controls.Add(userControl);
+            mainForm_panel.Controls.Add(userControl);
         }
 
 
@@ -54,40 +59,26 @@ namespace EventManagementSystem
             }
         }
 
+        //loads dashboard panel
         private void dashboard_btn_Click(object sender, EventArgs e)
         {
 
             LoadUserControl(dashboardControl);
         }
 
+        //loads add form panel
         private void addEvent_btn_Click(object sender, EventArgs e)
         {
             LoadUserControl(addEventControl);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        //loads view all events panel
+        private void viewEvents_Click(object sender, EventArgs e)
         {
             LoadUserControl(viewEventsControl);
         }
 
-
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

@@ -30,27 +30,27 @@ namespace EventManagementSystem
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.main_title = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.viewEvents_btn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.logout_txt = new System.Windows.Forms.Label();
             this.logout_btn = new System.Windows.Forms.Button();
             this.addEvent_btn = new System.Windows.Forms.Button();
             this.dashboard_btn = new System.Windows.Forms.Button();
-            this.greet_user = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.main_username = new System.Windows.Forms.Label();
+            this.main_pp = new System.Windows.Forms.PictureBox();
+            this.mainForm_panel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.main_pp)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.main_title);
             this.panel1.Controls.Add(this.exit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -59,18 +59,17 @@ namespace EventManagementSystem
             this.panel1.Size = new System.Drawing.Size(1467, 43);
             this.panel1.TabIndex = 0;
             // 
-            // label2
+            // main_title
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(9, 11);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Eventa";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.main_title.AutoSize = true;
+            this.main_title.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.main_title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.main_title.Location = new System.Drawing.Point(9, 11);
+            this.main_title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.main_title.Name = "main_title";
+            this.main_title.Size = new System.Drawing.Size(65, 20);
+            this.main_title.TabIndex = 1;
+            this.main_title.Text = "Eventa";
             // 
             // exit
             // 
@@ -90,12 +89,12 @@ namespace EventManagementSystem
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
             this.panel2.Controls.Add(this.viewEvents_btn);
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.logout_txt);
             this.panel2.Controls.Add(this.logout_btn);
             this.panel2.Controls.Add(this.addEvent_btn);
             this.panel2.Controls.Add(this.dashboard_btn);
-            this.panel2.Controls.Add(this.greet_user);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.main_username);
+            this.panel2.Controls.Add(this.main_pp);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 43);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -122,20 +121,19 @@ namespace EventManagementSystem
             this.viewEvents_btn.TabIndex = 7;
             this.viewEvents_btn.Text = "VIEW EVENTS";
             this.viewEvents_btn.UseVisualStyleBackColor = false;
-            this.viewEvents_btn.Click += new System.EventHandler(this.button1_Click);
+            this.viewEvents_btn.Click += new System.EventHandler(this.viewEvents_Click);
             // 
-            // label4
+            // logout_txt
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.label4.Location = new System.Drawing.Point(73, 649);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 23);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Sign Out";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.logout_txt.AutoSize = true;
+            this.logout_txt.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_txt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.logout_txt.Location = new System.Drawing.Point(73, 649);
+            this.logout_txt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.logout_txt.Name = "logout_txt";
+            this.logout_txt.Size = new System.Drawing.Size(83, 23);
+            this.logout_txt.TabIndex = 6;
+            this.logout_txt.Text = "Sign Out";
             // 
             // logout_btn
             // 
@@ -198,46 +196,45 @@ namespace EventManagementSystem
             this.dashboard_btn.UseVisualStyleBackColor = false;
             this.dashboard_btn.Click += new System.EventHandler(this.dashboard_btn_Click);
             // 
-            // greet_user
+            // main_username
             // 
-            this.greet_user.AutoSize = true;
-            this.greet_user.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.greet_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.greet_user.Location = new System.Drawing.Point(73, 183);
-            this.greet_user.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.greet_user.Name = "greet_user";
-            this.greet_user.Size = new System.Drawing.Size(156, 24);
-            this.greet_user.TabIndex = 1;
-            this.greet_user.Text = "Welcome, Elmir!";
+            this.main_username.AutoSize = true;
+            this.main_username.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.main_username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.main_username.Location = new System.Drawing.Point(73, 183);
+            this.main_username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.main_username.Name = "main_username";
+            this.main_username.Size = new System.Drawing.Size(156, 24);
+            this.main_username.TabIndex = 1;
+            this.main_username.Text = "Welcome, Elmir!";
             // 
-            // pictureBox1
+            // main_pp
             // 
-            this.pictureBox1.Image = global::EventaDesktop.Properties.Resources.pp_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(90, 55);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(123, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.main_pp.Image = global::EventaDesktop.Properties.Resources.pp_removebg_preview;
+            this.main_pp.Location = new System.Drawing.Point(90, 55);
+            this.main_pp.Margin = new System.Windows.Forms.Padding(4);
+            this.main_pp.Name = "main_pp";
+            this.main_pp.Size = new System.Drawing.Size(123, 124);
+            this.main_pp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.main_pp.TabIndex = 0;
+            this.main_pp.TabStop = false;
             // 
-            // panel3
+            // mainForm_panel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(300, 43);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1167, 695);
-            this.panel3.TabIndex = 2;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.mainForm_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.mainForm_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainForm_panel.Location = new System.Drawing.Point(300, 43);
+            this.mainForm_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.mainForm_panel.Name = "mainForm_panel";
+            this.mainForm_panel.Size = new System.Drawing.Size(1167, 695);
+            this.mainForm_panel.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1467, 738);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.mainForm_panel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -249,7 +246,7 @@ namespace EventManagementSystem
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.main_pp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,15 +255,15 @@ namespace EventManagementSystem
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label exit;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label main_title;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label greet_user;
+        private System.Windows.Forms.PictureBox main_pp;
+        private System.Windows.Forms.Label main_username;
         private System.Windows.Forms.Button dashboard_btn;
         private System.Windows.Forms.Button addEvent_btn;
         private System.Windows.Forms.Button logout_btn;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label logout_txt;
+        private System.Windows.Forms.Panel mainForm_panel;
         private System.Windows.Forms.Button viewEvents_btn;
         //private Salary salary1;
         //private Dashboard dashboard1;

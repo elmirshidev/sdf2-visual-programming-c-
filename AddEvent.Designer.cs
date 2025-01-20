@@ -31,34 +31,8 @@ namespace EventManagementSystem
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.addEvent_price = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.addEvent_endDate = new System.Windows.Forms.DateTimePicker();
-            this.addEvent_startDate = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.addEvent_clearBtn = new System.Windows.Forms.Button();
-            this.addEvent_deleteBtn = new System.Windows.Forms.Button();
-            this.addEvent_updateBtn = new System.Windows.Forms.Button();
-            this.addEvent_addBtn = new System.Windows.Forms.Button();
-            this.addEvent_importBtn = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.addEvent_location = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.addEvent_description = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.addEvent_eventName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.eventaDataSet1 = new EventaDesktop.EventaDataSet1();
-            this.eventaDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eventaDataSet2 = new EventaDesktop.EventaDataSet2();
-            this.eventsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eventsTableAdapter = new EventaDesktop.EventaDataSet2TableAdapters.eventsTableAdapter();
+            this.topPanel = new System.Windows.Forms.Panel();
+            this.eventsDataGrid = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,36 +44,62 @@ namespace EventManagementSystem
             this.updatedatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addEvent_picture = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.eventsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eventaDataSet2 = new EventaDesktop.EventaDataSet2();
+            this.title = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.bottomPanel = new System.Windows.Forms.Panel();
+            this.eventPrice_input = new System.Windows.Forms.TextBox();
+            this.eventPrice_label = new System.Windows.Forms.Label();
+            this.eventEDate_input = new System.Windows.Forms.DateTimePicker();
+            this.eventSDate_input = new System.Windows.Forms.DateTimePicker();
+            this.eventEDate_label = new System.Windows.Forms.Label();
+            this.clearAllFields_btn = new System.Windows.Forms.Button();
+            this.deleteEvent_btn = new System.Windows.Forms.Button();
+            this.updateEvent_btn = new System.Windows.Forms.Button();
+            this.addEvent_btn = new System.Windows.Forms.Button();
+            this.eventPhoto_import_btn = new System.Windows.Forms.Button();
+            this.eventPhoto = new System.Windows.Forms.PictureBox();
+            this.eventSDate_label = new System.Windows.Forms.Label();
+            this.eventLocation_input = new System.Windows.Forms.TextBox();
+            this.eventLocation_label = new System.Windows.Forms.Label();
+            this.eventDesc_input = new System.Windows.Forms.TextBox();
+            this.eventDesc_label = new System.Windows.Forms.Label();
+            this.eventName_input = new System.Windows.Forms.TextBox();
+            this.eventName_label = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.eventaDataSet1 = new EventaDesktop.EventaDataSet1();
+            this.eventaDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eventsTableAdapter = new EventaDesktop.EventaDataSet2TableAdapters.eventsTableAdapter();
+            this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet2)).BeginInit();
+            this.bottomPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addEvent_picture)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // topPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(24, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1118, 343);
-            this.panel1.TabIndex = 0;
+            this.topPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.topPanel.Controls.Add(this.eventsDataGrid);
+            this.topPanel.Controls.Add(this.title);
+            this.topPanel.Controls.Add(this.panel2);
+            this.topPanel.Location = new System.Drawing.Point(24, 30);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(1118, 343);
+            this.topPanel.TabIndex = 0;
             // 
-            // dataGridView1
+            // eventsDataGrid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
+            this.eventsDataGrid.AllowUserToAddRows = false;
+            this.eventsDataGrid.AllowUserToDeleteRows = false;
+            this.eventsDataGrid.AutoGenerateColumns = false;
+            this.eventsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,9 +107,9 @@ namespace EventManagementSystem
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.eventsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.eventsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.eventsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
@@ -121,333 +121,17 @@ namespace EventManagementSystem
             this.updatedatDataGridViewTextBoxColumn,
             this.imageDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.eventsBindingSource;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 71);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1064, 238);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.label1.Location = new System.Drawing.Point(24, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 27);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "My Events";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Location = new System.Drawing.Point(0, 368);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1119, 278);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.addEvent_price);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.addEvent_endDate);
-            this.panel3.Controls.Add(this.addEvent_startDate);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.addEvent_clearBtn);
-            this.panel3.Controls.Add(this.addEvent_deleteBtn);
-            this.panel3.Controls.Add(this.addEvent_updateBtn);
-            this.panel3.Controls.Add(this.addEvent_addBtn);
-            this.panel3.Controls.Add(this.addEvent_importBtn);
-            this.panel3.Controls.Add(this.addEvent_picture);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.addEvent_location);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.addEvent_description);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.addEvent_eventName);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(24, 398);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1118, 264);
-            this.panel3.TabIndex = 2;
-            // 
-            // addEvent_price
-            // 
-            this.addEvent_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_price.Location = new System.Drawing.Point(826, 41);
-            this.addEvent_price.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_price.Name = "addEvent_price";
-            this.addEvent_price.Size = new System.Drawing.Size(113, 24);
-            this.addEvent_price.TabIndex = 23;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.label4.Location = new System.Drawing.Point(773, 43);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 18);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Price:";
-            // 
-            // addEvent_endDate
-            // 
-            this.addEvent_endDate.Location = new System.Drawing.Point(522, 129);
-            this.addEvent_endDate.MaxDate = new System.DateTime(2025, 4, 30, 0, 0, 0, 0);
-            this.addEvent_endDate.MinDate = new System.DateTime(2024, 12, 25, 23, 59, 0, 0);
-            this.addEvent_endDate.Name = "addEvent_endDate";
-            this.addEvent_endDate.Size = new System.Drawing.Size(217, 22);
-            this.addEvent_endDate.TabIndex = 21;
-            this.addEvent_endDate.Value = new System.DateTime(2024, 12, 25, 23, 59, 0, 0);
-            // 
-            // addEvent_startDate
-            // 
-            this.addEvent_startDate.Location = new System.Drawing.Point(522, 84);
-            this.addEvent_startDate.MaxDate = new System.DateTime(2025, 4, 30, 0, 0, 0, 0);
-            this.addEvent_startDate.MinDate = new System.DateTime(2024, 12, 25, 23, 59, 59, 0);
-            this.addEvent_startDate.Name = "addEvent_startDate";
-            this.addEvent_startDate.Size = new System.Drawing.Size(217, 22);
-            this.addEvent_startDate.TabIndex = 20;
-            this.addEvent_startDate.Value = new System.DateTime(2024, 12, 25, 23, 59, 59, 0);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.label7.Location = new System.Drawing.Point(441, 132);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 18);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "End Date:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // addEvent_clearBtn
-            // 
-            this.addEvent_clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
-            this.addEvent_clearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addEvent_clearBtn.FlatAppearance.BorderSize = 0;
-            this.addEvent_clearBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
-            this.addEvent_clearBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_clearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEvent_clearBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_clearBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.addEvent_clearBtn.Location = new System.Drawing.Point(788, 201);
-            this.addEvent_clearBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_clearBtn.Name = "addEvent_clearBtn";
-            this.addEvent_clearBtn.Size = new System.Drawing.Size(151, 46);
-            this.addEvent_clearBtn.TabIndex = 17;
-            this.addEvent_clearBtn.Text = "Clear";
-            this.addEvent_clearBtn.UseVisualStyleBackColor = false;
-            this.addEvent_clearBtn.Click += new System.EventHandler(this.addEvent_clearBtn_Click);
-            // 
-            // addEvent_deleteBtn
-            // 
-            this.addEvent_deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
-            this.addEvent_deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addEvent_deleteBtn.FlatAppearance.BorderSize = 0;
-            this.addEvent_deleteBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
-            this.addEvent_deleteBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_deleteBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEvent_deleteBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_deleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.addEvent_deleteBtn.Location = new System.Drawing.Point(615, 201);
-            this.addEvent_deleteBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_deleteBtn.Name = "addEvent_deleteBtn";
-            this.addEvent_deleteBtn.Size = new System.Drawing.Size(151, 46);
-            this.addEvent_deleteBtn.TabIndex = 16;
-            this.addEvent_deleteBtn.Text = "Delete";
-            this.addEvent_deleteBtn.UseVisualStyleBackColor = false;
-            this.addEvent_deleteBtn.Click += new System.EventHandler(this.addEvent_deleteBtn_Click);
-            // 
-            // addEvent_updateBtn
-            // 
-            this.addEvent_updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
-            this.addEvent_updateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addEvent_updateBtn.FlatAppearance.BorderSize = 0;
-            this.addEvent_updateBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
-            this.addEvent_updateBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_updateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEvent_updateBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_updateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.addEvent_updateBtn.Location = new System.Drawing.Point(416, 201);
-            this.addEvent_updateBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_updateBtn.Name = "addEvent_updateBtn";
-            this.addEvent_updateBtn.Size = new System.Drawing.Size(151, 46);
-            this.addEvent_updateBtn.TabIndex = 15;
-            this.addEvent_updateBtn.Text = "Update";
-            this.addEvent_updateBtn.UseVisualStyleBackColor = false;
-            this.addEvent_updateBtn.Click += new System.EventHandler(this.addEvent_updateBtn_Click);
-            // 
-            // addEvent_addBtn
-            // 
-            this.addEvent_addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
-            this.addEvent_addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addEvent_addBtn.FlatAppearance.BorderSize = 0;
-            this.addEvent_addBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
-            this.addEvent_addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEvent_addBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_addBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.addEvent_addBtn.Location = new System.Drawing.Point(243, 201);
-            this.addEvent_addBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_addBtn.Name = "addEvent_addBtn";
-            this.addEvent_addBtn.Size = new System.Drawing.Size(151, 46);
-            this.addEvent_addBtn.TabIndex = 14;
-            this.addEvent_addBtn.Text = "Add";
-            this.addEvent_addBtn.UseVisualStyleBackColor = false;
-            this.addEvent_addBtn.Click += new System.EventHandler(this.addEvent_addBtn_Click);
-            // 
-            // addEvent_importBtn
-            // 
-            this.addEvent_importBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
-            this.addEvent_importBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addEvent_importBtn.FlatAppearance.BorderSize = 0;
-            this.addEvent_importBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_importBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
-            this.addEvent_importBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEvent_importBtn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_importBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.addEvent_importBtn.Location = new System.Drawing.Point(983, 155);
-            this.addEvent_importBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_importBtn.Name = "addEvent_importBtn";
-            this.addEvent_importBtn.Size = new System.Drawing.Size(109, 28);
-            this.addEvent_importBtn.TabIndex = 13;
-            this.addEvent_importBtn.Text = "Import";
-            this.addEvent_importBtn.UseVisualStyleBackColor = false;
-            this.addEvent_importBtn.Click += new System.EventHandler(this.addEvent_importBtn_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.label6.Location = new System.Drawing.Point(436, 84);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 18);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Start Date:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // addEvent_location
-            // 
-            this.addEvent_location.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_location.Location = new System.Drawing.Point(514, 41);
-            this.addEvent_location.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_location.Name = "addEvent_location";
-            this.addEvent_location.Size = new System.Drawing.Size(225, 24);
-            this.addEvent_location.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.label5.Location = new System.Drawing.Point(401, 44);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 18);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Event location:";
-            // 
-            // addEvent_description
-            // 
-            this.addEvent_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_description.Location = new System.Drawing.Point(135, 91);
-            this.addEvent_description.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_description.Multiline = true;
-            this.addEvent_description.Name = "addEvent_description";
-            this.addEvent_description.Size = new System.Drawing.Size(225, 78);
-            this.addEvent_description.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.label3.Location = new System.Drawing.Point(36, 91);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Description:";
-            // 
-            // addEvent_eventName
-            // 
-            this.addEvent_eventName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvent_eventName.Location = new System.Drawing.Point(135, 42);
-            this.addEvent_eventName.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_eventName.Name = "addEvent_eventName";
-            this.addEvent_eventName.Size = new System.Drawing.Size(225, 24);
-            this.addEvent_eventName.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.label2.Location = new System.Drawing.Point(36, 45);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Event Name:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel4.Location = new System.Drawing.Point(0, 368);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1119, 278);
-            this.panel4.TabIndex = 1;
-            // 
-            // eventaDataSet1
-            // 
-            this.eventaDataSet1.DataSetName = "EventaDataSet1";
-            this.eventaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // eventaDataSet1BindingSource
-            // 
-            this.eventaDataSet1BindingSource.DataSource = this.eventaDataSet1;
-            this.eventaDataSet1BindingSource.Position = 0;
-            // 
-            // eventaDataSet2
-            // 
-            this.eventaDataSet2.DataSetName = "EventaDataSet2";
-            this.eventaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // eventsBindingSource
-            // 
-            this.eventsBindingSource.DataMember = "events";
-            this.eventsBindingSource.DataSource = this.eventaDataSet2;
-            // 
-            // eventsTableAdapter
-            // 
-            this.eventsTableAdapter.ClearBeforeFill = true;
+            this.eventsDataGrid.DataSource = this.eventsBindingSource;
+            this.eventsDataGrid.EnableHeadersVisualStyles = false;
+            this.eventsDataGrid.Location = new System.Drawing.Point(28, 71);
+            this.eventsDataGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.eventsDataGrid.Name = "eventsDataGrid";
+            this.eventsDataGrid.ReadOnly = true;
+            this.eventsDataGrid.RowHeadersVisible = false;
+            this.eventsDataGrid.RowHeadersWidth = 51;
+            this.eventsDataGrid.Size = new System.Drawing.Size(1064, 238);
+            this.eventsDataGrid.TabIndex = 3;
+            this.eventsDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -548,70 +232,379 @@ namespace EventManagementSystem
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 125;
             // 
-            // addEvent_picture
+            // eventsBindingSource
             // 
-            this.addEvent_picture.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.addEvent_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.addEvent_picture.Location = new System.Drawing.Point(984, 42);
-            this.addEvent_picture.Margin = new System.Windows.Forms.Padding(4);
-            this.addEvent_picture.Name = "addEvent_picture";
-            this.addEvent_picture.Size = new System.Drawing.Size(109, 113);
-            this.addEvent_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.addEvent_picture.TabIndex = 12;
-            this.addEvent_picture.TabStop = false;
-            this.addEvent_picture.Click += new System.EventHandler(this.addEvent_picture_Click);
+            this.eventsBindingSource.DataMember = "events";
+            this.eventsBindingSource.DataSource = this.eventaDataSet2;
+            // 
+            // eventaDataSet2
+            // 
+            this.eventaDataSet2.DataSetName = "EventaDataSet2";
+            this.eventaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
+            this.title.Location = new System.Drawing.Point(24, 26);
+            this.title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(124, 27);
+            this.title.TabIndex = 2;
+            this.title.Text = "My Events";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Location = new System.Drawing.Point(0, 368);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1119, 278);
+            this.panel2.TabIndex = 1;
+            // 
+            // bottomPanel
+            // 
+            this.bottomPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bottomPanel.Controls.Add(this.eventPrice_input);
+            this.bottomPanel.Controls.Add(this.eventPrice_label);
+            this.bottomPanel.Controls.Add(this.eventEDate_input);
+            this.bottomPanel.Controls.Add(this.eventSDate_input);
+            this.bottomPanel.Controls.Add(this.eventEDate_label);
+            this.bottomPanel.Controls.Add(this.clearAllFields_btn);
+            this.bottomPanel.Controls.Add(this.deleteEvent_btn);
+            this.bottomPanel.Controls.Add(this.updateEvent_btn);
+            this.bottomPanel.Controls.Add(this.addEvent_btn);
+            this.bottomPanel.Controls.Add(this.eventPhoto_import_btn);
+            this.bottomPanel.Controls.Add(this.eventPhoto);
+            this.bottomPanel.Controls.Add(this.eventSDate_label);
+            this.bottomPanel.Controls.Add(this.eventLocation_input);
+            this.bottomPanel.Controls.Add(this.eventLocation_label);
+            this.bottomPanel.Controls.Add(this.eventDesc_input);
+            this.bottomPanel.Controls.Add(this.eventDesc_label);
+            this.bottomPanel.Controls.Add(this.eventName_input);
+            this.bottomPanel.Controls.Add(this.eventName_label);
+            this.bottomPanel.Controls.Add(this.panel4);
+            this.bottomPanel.Location = new System.Drawing.Point(24, 398);
+            this.bottomPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.Size = new System.Drawing.Size(1118, 264);
+            this.bottomPanel.TabIndex = 2;
+            // 
+            // eventPrice_input
+            // 
+            this.eventPrice_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventPrice_input.Location = new System.Drawing.Point(826, 41);
+            this.eventPrice_input.Margin = new System.Windows.Forms.Padding(4);
+            this.eventPrice_input.Name = "eventPrice_input";
+            this.eventPrice_input.Size = new System.Drawing.Size(113, 24);
+            this.eventPrice_input.TabIndex = 23;
+            // 
+            // eventPrice_label
+            // 
+            this.eventPrice_label.AutoSize = true;
+            this.eventPrice_label.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.eventPrice_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
+            this.eventPrice_label.Location = new System.Drawing.Point(773, 43);
+            this.eventPrice_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eventPrice_label.Name = "eventPrice_label";
+            this.eventPrice_label.Size = new System.Drawing.Size(43, 18);
+            this.eventPrice_label.TabIndex = 22;
+            this.eventPrice_label.Text = "Price:";
+            // 
+            // eventEDate_input
+            // 
+            this.eventEDate_input.Location = new System.Drawing.Point(522, 129);
+            this.eventEDate_input.MaxDate = new System.DateTime(2025, 4, 30, 0, 0, 0, 0);
+            this.eventEDate_input.MinDate = new System.DateTime(2024, 12, 25, 23, 59, 0, 0);
+            this.eventEDate_input.Name = "eventEDate_input";
+            this.eventEDate_input.Size = new System.Drawing.Size(217, 22);
+            this.eventEDate_input.TabIndex = 21;
+            this.eventEDate_input.Value = new System.DateTime(2024, 12, 25, 23, 59, 0, 0);
+            // 
+            // eventSDate_input
+            // 
+            this.eventSDate_input.Location = new System.Drawing.Point(522, 84);
+            this.eventSDate_input.MaxDate = new System.DateTime(2025, 4, 30, 0, 0, 0, 0);
+            this.eventSDate_input.MinDate = new System.DateTime(2024, 12, 25, 23, 59, 59, 0);
+            this.eventSDate_input.Name = "eventSDate_input";
+            this.eventSDate_input.Size = new System.Drawing.Size(217, 22);
+            this.eventSDate_input.TabIndex = 20;
+            this.eventSDate_input.Value = new System.DateTime(2024, 12, 25, 23, 59, 59, 0);
+            // 
+            // eventEDate_label
+            // 
+            this.eventEDate_label.AutoSize = true;
+            this.eventEDate_label.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.eventEDate_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
+            this.eventEDate_label.Location = new System.Drawing.Point(441, 132);
+            this.eventEDate_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eventEDate_label.Name = "eventEDate_label";
+            this.eventEDate_label.Size = new System.Drawing.Size(73, 18);
+            this.eventEDate_label.TabIndex = 18;
+            this.eventEDate_label.Text = "End Date:";
+            // 
+            // clearAllFields_btn
+            // 
+            this.clearAllFields_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
+            this.clearAllFields_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearAllFields_btn.FlatAppearance.BorderSize = 0;
+            this.clearAllFields_btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
+            this.clearAllFields_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.clearAllFields_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.clearAllFields_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearAllFields_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearAllFields_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.clearAllFields_btn.Location = new System.Drawing.Point(788, 201);
+            this.clearAllFields_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.clearAllFields_btn.Name = "clearAllFields_btn";
+            this.clearAllFields_btn.Size = new System.Drawing.Size(151, 46);
+            this.clearAllFields_btn.TabIndex = 17;
+            this.clearAllFields_btn.Text = "Clear";
+            this.clearAllFields_btn.UseVisualStyleBackColor = false;
+            this.clearAllFields_btn.Click += new System.EventHandler(this.addEvent_clearBtn_Click);
+            // 
+            // deleteEvent_btn
+            // 
+            this.deleteEvent_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
+            this.deleteEvent_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteEvent_btn.FlatAppearance.BorderSize = 0;
+            this.deleteEvent_btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
+            this.deleteEvent_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.deleteEvent_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.deleteEvent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteEvent_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteEvent_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.deleteEvent_btn.Location = new System.Drawing.Point(615, 201);
+            this.deleteEvent_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteEvent_btn.Name = "deleteEvent_btn";
+            this.deleteEvent_btn.Size = new System.Drawing.Size(151, 46);
+            this.deleteEvent_btn.TabIndex = 16;
+            this.deleteEvent_btn.Text = "Delete";
+            this.deleteEvent_btn.UseVisualStyleBackColor = false;
+            this.deleteEvent_btn.Click += new System.EventHandler(this.addEvent_deleteBtn_Click);
+            // 
+            // updateEvent_btn
+            // 
+            this.updateEvent_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
+            this.updateEvent_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.updateEvent_btn.FlatAppearance.BorderSize = 0;
+            this.updateEvent_btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
+            this.updateEvent_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.updateEvent_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.updateEvent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateEvent_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateEvent_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.updateEvent_btn.Location = new System.Drawing.Point(416, 201);
+            this.updateEvent_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.updateEvent_btn.Name = "updateEvent_btn";
+            this.updateEvent_btn.Size = new System.Drawing.Size(151, 46);
+            this.updateEvent_btn.TabIndex = 15;
+            this.updateEvent_btn.Text = "Update";
+            this.updateEvent_btn.UseVisualStyleBackColor = false;
+            this.updateEvent_btn.Click += new System.EventHandler(this.addEvent_updateBtn_Click);
+            // 
+            // addEvent_btn
+            // 
+            this.addEvent_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
+            this.addEvent_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addEvent_btn.FlatAppearance.BorderSize = 0;
+            this.addEvent_btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(8)))), ((int)(((byte)(138)))));
+            this.addEvent_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.addEvent_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.addEvent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addEvent_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addEvent_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.addEvent_btn.Location = new System.Drawing.Point(243, 201);
+            this.addEvent_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.addEvent_btn.Name = "addEvent_btn";
+            this.addEvent_btn.Size = new System.Drawing.Size(151, 46);
+            this.addEvent_btn.TabIndex = 14;
+            this.addEvent_btn.Text = "Add";
+            this.addEvent_btn.UseVisualStyleBackColor = false;
+            this.addEvent_btn.Click += new System.EventHandler(this.addEvent_addBtn_Click);
+            // 
+            // eventPhoto_import_btn
+            // 
+            this.eventPhoto_import_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(161)))), ((int)(((byte)(94)))));
+            this.eventPhoto_import_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eventPhoto_import_btn.FlatAppearance.BorderSize = 0;
+            this.eventPhoto_import_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.eventPhoto_import_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(108)))), ((int)(((byte)(37)))));
+            this.eventPhoto_import_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eventPhoto_import_btn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventPhoto_import_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.eventPhoto_import_btn.Location = new System.Drawing.Point(983, 155);
+            this.eventPhoto_import_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.eventPhoto_import_btn.Name = "eventPhoto_import_btn";
+            this.eventPhoto_import_btn.Size = new System.Drawing.Size(109, 28);
+            this.eventPhoto_import_btn.TabIndex = 13;
+            this.eventPhoto_import_btn.Text = "Import";
+            this.eventPhoto_import_btn.UseVisualStyleBackColor = false;
+            this.eventPhoto_import_btn.Click += new System.EventHandler(this.addEvent_importBtn_Click);
+            // 
+            // eventPhoto
+            // 
+            this.eventPhoto.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.eventPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.eventPhoto.Location = new System.Drawing.Point(984, 42);
+            this.eventPhoto.Margin = new System.Windows.Forms.Padding(4);
+            this.eventPhoto.Name = "eventPhoto";
+            this.eventPhoto.Size = new System.Drawing.Size(109, 113);
+            this.eventPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.eventPhoto.TabIndex = 12;
+            this.eventPhoto.TabStop = false;
+            // 
+            // eventSDate_label
+            // 
+            this.eventSDate_label.AutoSize = true;
+            this.eventSDate_label.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.eventSDate_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
+            this.eventSDate_label.Location = new System.Drawing.Point(436, 84);
+            this.eventSDate_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eventSDate_label.Name = "eventSDate_label";
+            this.eventSDate_label.Size = new System.Drawing.Size(80, 18);
+            this.eventSDate_label.TabIndex = 10;
+            this.eventSDate_label.Text = "Start Date:";
+            // 
+            // eventLocation_input
+            // 
+            this.eventLocation_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventLocation_input.Location = new System.Drawing.Point(514, 41);
+            this.eventLocation_input.Margin = new System.Windows.Forms.Padding(4);
+            this.eventLocation_input.Name = "eventLocation_input";
+            this.eventLocation_input.Size = new System.Drawing.Size(225, 24);
+            this.eventLocation_input.TabIndex = 9;
+            // 
+            // eventLocation_label
+            // 
+            this.eventLocation_label.AutoSize = true;
+            this.eventLocation_label.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.eventLocation_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
+            this.eventLocation_label.Location = new System.Drawing.Point(401, 44);
+            this.eventLocation_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eventLocation_label.Name = "eventLocation_label";
+            this.eventLocation_label.Size = new System.Drawing.Size(103, 18);
+            this.eventLocation_label.TabIndex = 8;
+            this.eventLocation_label.Text = "Event location:";
+            // 
+            // eventDesc_input
+            // 
+            this.eventDesc_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventDesc_input.Location = new System.Drawing.Point(135, 91);
+            this.eventDesc_input.Margin = new System.Windows.Forms.Padding(4);
+            this.eventDesc_input.Multiline = true;
+            this.eventDesc_input.Name = "eventDesc_input";
+            this.eventDesc_input.Size = new System.Drawing.Size(225, 78);
+            this.eventDesc_input.TabIndex = 5;
+            // 
+            // eventDesc_label
+            // 
+            this.eventDesc_label.AutoSize = true;
+            this.eventDesc_label.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.eventDesc_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
+            this.eventDesc_label.Location = new System.Drawing.Point(36, 91);
+            this.eventDesc_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eventDesc_label.Name = "eventDesc_label";
+            this.eventDesc_label.Size = new System.Drawing.Size(83, 18);
+            this.eventDesc_label.TabIndex = 4;
+            this.eventDesc_label.Text = "Description:";
+            // 
+            // eventName_input
+            // 
+            this.eventName_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventName_input.Location = new System.Drawing.Point(135, 42);
+            this.eventName_input.Margin = new System.Windows.Forms.Padding(4);
+            this.eventName_input.Name = "eventName_input";
+            this.eventName_input.Size = new System.Drawing.Size(225, 24);
+            this.eventName_input.TabIndex = 3;
+            // 
+            // eventName_label
+            // 
+            this.eventName_label.AutoSize = true;
+            this.eventName_label.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventName_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
+            this.eventName_label.Location = new System.Drawing.Point(36, 45);
+            this.eventName_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eventName_label.Name = "eventName_label";
+            this.eventName_label.Size = new System.Drawing.Size(94, 18);
+            this.eventName_label.TabIndex = 2;
+            this.eventName_label.Text = "Event Name:";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel4.Location = new System.Drawing.Point(0, 368);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1119, 278);
+            this.panel4.TabIndex = 1;
+            // 
+            // eventaDataSet1
+            // 
+            this.eventaDataSet1.DataSetName = "EventaDataSet1";
+            this.eventaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // eventaDataSet1BindingSource
+            // 
+            this.eventaDataSet1BindingSource.DataSource = this.eventaDataSet1;
+            this.eventaDataSet1BindingSource.Position = 0;
+            // 
+            // eventsTableAdapter
+            // 
+            this.eventsTableAdapter.ClearBeforeFill = true;
             // 
             // AddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.bottomPanel);
+            this.Controls.Add(this.topPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddEvent";
             this.Size = new System.Drawing.Size(1167, 695);
-            this.Load += new System.EventHandler(this.AddEvent_Load_1);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet2)).EndInit();
+            this.bottomPanel.ResumeLayout(false);
+            this.bottomPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventaDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addEvent_picture)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel bottomPanel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox addEvent_description;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox addEvent_eventName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox addEvent_location;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button addEvent_clearBtn;
-        private System.Windows.Forms.Button addEvent_deleteBtn;
-        private System.Windows.Forms.Button addEvent_updateBtn;
-        private System.Windows.Forms.Button addEvent_addBtn;
-        private System.Windows.Forms.Button addEvent_importBtn;
-        private System.Windows.Forms.PictureBox addEvent_picture;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker addEvent_endDate;
-        private System.Windows.Forms.DateTimePicker addEvent_startDate;
-        private System.Windows.Forms.TextBox addEvent_price;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView eventsDataGrid;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.TextBox eventDesc_input;
+        private System.Windows.Forms.Label eventDesc_label;
+        private System.Windows.Forms.TextBox eventName_input;
+        private System.Windows.Forms.Label eventName_label;
+        private System.Windows.Forms.TextBox eventLocation_input;
+        private System.Windows.Forms.Label eventLocation_label;
+        private System.Windows.Forms.Label eventSDate_label;
+        private System.Windows.Forms.Button clearAllFields_btn;
+        private System.Windows.Forms.Button deleteEvent_btn;
+        private System.Windows.Forms.Button updateEvent_btn;
+        private System.Windows.Forms.Button addEvent_btn;
+        private System.Windows.Forms.Button eventPhoto_import_btn;
+        private System.Windows.Forms.PictureBox eventPhoto;
+        private System.Windows.Forms.Label eventEDate_label;
+        private System.Windows.Forms.DateTimePicker eventEDate_input;
+        private System.Windows.Forms.DateTimePicker eventSDate_input;
+        private System.Windows.Forms.TextBox eventPrice_input;
+        private System.Windows.Forms.Label eventPrice_label;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
