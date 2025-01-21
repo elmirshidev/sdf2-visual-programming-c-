@@ -24,7 +24,7 @@ namespace EventManagementSystem
 
             dashboardControl = new Dashboard();
             addEventControl = new AddEvent(this);
-            viewEventsControl = new ViewEvents();
+            viewEventsControl = new ViewEvents(this);
 
             // Set the default panel to dashboard
             LoadUserControl(dashboardControl);
@@ -40,10 +40,10 @@ namespace EventManagementSystem
             {
                 dashboard.ReloadDashboard();
             }
-            //else if (userControl is ViewEvents viewEvents)
-            //{
-            //    viewEvents.ReloadEvents();
-            //}
+            else if (userControl is ViewEvents viewEvents)
+            {
+                viewEvents.displayEventsData();
+            }
             else if (userControl is AddEvent addEvent)
             {
                 addEvent.displayEventsData();

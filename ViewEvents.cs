@@ -9,11 +9,13 @@ namespace EventManagementSystem
     public partial class ViewEvents : UserControl
     {
         SqlConnection connect = new SqlConnection(@"Data Source=LAPTOP-0VTIUPTU\SQLEXPRESS;Initial Catalog=Eventa;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
-
-        public ViewEvents()
+        private MainForm mainForm;
+        FlowLayoutPanel flowLayoutPanel;
+        public ViewEvents(MainForm mF)
         {
+            mainForm = mF;
             // Add a FlowLayoutPanel to the control for better layout management
-            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel
+            flowLayoutPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
                 AutoScroll = true, // Enable scrolling for overflow
@@ -23,10 +25,10 @@ namespace EventManagementSystem
             };
             this.Controls.Add(flowLayoutPanel);
 
-            displayEventsData(flowLayoutPanel);
+            displayEventsData();
         }
 
-        public void displayEventsData(FlowLayoutPanel flowLayoutPanel)
+        public void displayEventsData()
         {
             if (connect.State == ConnectionState.Closed)
             {
@@ -47,7 +49,7 @@ namespace EventManagementSystem
                             // Loop through each event and create a card
                             foreach (DataRow row in eventsTable.Rows)
                             {
-                                int createdBy = Convert.ToInt32(row["createdBy"]);
+                                int createdBy = Convert.ToInt32(row["created_by"]);
                                 int eventId = Convert.ToInt32(row["id"]);
                                 string eventName = row["name"].ToString();
                                 string eventDescription = row["description"].ToString();
