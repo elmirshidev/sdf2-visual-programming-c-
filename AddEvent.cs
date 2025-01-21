@@ -82,43 +82,45 @@ namespace EventManagementSystem
             }
         }
 
-            private string handleImage(string eventName)
+        private string handleImage(string eventName)
+        {
+            // Use a relative directory path within the application's working directory
+            string uniqueString = Guid.NewGuid().ToString("N").Substring(0, 8);
+            string baseDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EventImages");
+            string imagePath = Path.Combine(baseDirectory, $"{eventName}_{uniqueString}" + ".jpg");
+            // Ensure the directory exists
+            if (!Directory.Exists(baseDirectory))
             {
-                // Use a relative directory path within the application's working directory
-                string baseDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EventImages");
-                string imagePath = Path.Combine(baseDirectory, eventName + ".jpg");
-                // Ensure the directory exists
-                if (!Directory.Exists(baseDirectory))
-                {
-                    Directory.CreateDirectory(baseDirectory);
-                }
-
-                // Ensure the image path is valid before copying
-                if (!string.IsNullOrEmpty(eventPhoto.ImageLocation) && File.Exists(eventPhoto.ImageLocation))
-                {
-                    try
-                    {
-                        // Copy the image to the directory
-                        File.Copy(eventPhoto.ImageLocation, imagePath, true);
-                        return imagePath;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error copying image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return "";
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Image location is invalid or image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return "";
-
-                }
+                Directory.CreateDirectory(baseDirectory);
             }
 
+            // Ensure the image path is valid before copying
+            if (!string.IsNullOrEmpty(eventPhoto.ImageLocation) && File.Exists(eventPhoto.ImageLocation))
+            {
+                try
+                {
+                    // Copy the image to the directory
+                    File.Copy(eventPhoto.ImageLocation, imagePath, true);
+                    return imagePath;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error copying image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Image location is invalid or image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
 
-            //ADD NEW EVENT
-            private async void addEvent_addBtn_Click(object sender, EventArgs e)
+            }
+        }
+
+
+
+        //ADD NEW EVENT
+        private async void addEvent_addBtn_Click(object sender, EventArgs e)
             {
                 var eventName = eventName_input.Text.Trim();
                 var eventDesc = eventDesc_input.Text.Trim();
@@ -160,7 +162,8 @@ namespace EventManagementSystem
 
 
                             string imagePath = handleImage(eventName);
-                            if(imagePath != "")
+                            //MessageBox.Show(imagePath, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (imagePath == "")
                             {
                                 return;
                             }
@@ -248,6 +251,7 @@ namespace EventManagementSystem
                     if (File.Exists(fullImagePath))
                     {
                         eventPhoto.Image = Image.FromFile(fullImagePath);
+                        eventPhoto.ImageLocation = fullImagePath;
                     }
                     else
                     {
@@ -303,15 +307,16 @@ namespace EventManagementSystem
                         connect.Open();
                         DateTime today = DateTime.Today;
 
-            
 
-                        string updateData = "UPDATE events SET name = @evName" +
-                            ", description = @evDesc, location = @evLoc" +
-                            ", start_time = @evST, image = @evImg, price = @evPrice" +
-                            "WHERE id = @evId";
 
-                        string imagePath = handleImage(eventName);
-                        if (imagePath != "")
+                    string updateData = "UPDATE events SET name = @evName, " +
+                     "description = @evDesc, location = @evLoc, " +
+                     "start_time = @evST, image = @evImg, price = @evPrice " +
+                     "WHERE id = @evId";
+
+
+                    string imagePath = handleImage(eventName);
+                        if (imagePath == "")
                         {
                             return;
                         }
@@ -324,7 +329,7 @@ namespace EventManagementSystem
                             cmd.Parameters.AddWithValue("@evST", sDate);
                             cmd.Parameters.AddWithValue("@evImg", imagePath);
                             cmd.Parameters.AddWithValue("@evPrice", eventPrice);
-                            cmd.Parameters.AddWithValue("@evId", 1);
+                            cmd.Parameters.AddWithValue("@evId", selectedEventId);
 
                             cmd.ExecuteNonQuery();
 
@@ -339,7 +344,7 @@ namespace EventManagementSystem
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: Could not update event.Try again", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error: Could not update event.Try again " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
                     {
