@@ -90,7 +90,6 @@ namespace EventaDesktop
             string eventLocation,
             Image eventPhoto,
             string startDate,
-            string endDate,
             string eventPrice,
             out string errorMessage
             )
@@ -109,18 +108,12 @@ namespace EventaDesktop
             }
 
             // Validate date comparison
-            if (!DateTime.TryParse(startDate, out DateTime startDateParsed) ||
-                !DateTime.TryParse(endDate, out DateTime endDateParsed))
+            if (!DateTime.TryParse(startDate, out DateTime startDateParsed))
             {
-                errorMessage = "Enter valid start and end dates.";
+                errorMessage = "Enter valid start date.";
                 return false;
             }
 
-            if (DateTime.Compare(startDateParsed, endDateParsed) >= 0)
-            {
-                errorMessage = "Start Date can't be equal or after the End Date.";
-                return false;
-            }
 
             // Validate price
             if (!float.TryParse(eventPrice, out float price) || price < 0)

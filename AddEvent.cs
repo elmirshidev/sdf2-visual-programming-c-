@@ -19,10 +19,12 @@ namespace EventManagementSystem
     {
         SqlConnection connect = new SqlConnection(@"Data Source=LAPTOP-0VTIUPTU\SQLEXPRESS;Initial Catalog=Eventa;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
 
-        public AddEvent()
+        private MainForm mainForm;
+
+        public AddEvent(MainForm form)
         {
             InitializeComponent();
-
+            mainForm = form;
 
             // TO DISPLAY THE DATA FROM DATABASE TO DATA GRID VIEW
             displayEventsData();
@@ -34,11 +36,11 @@ namespace EventManagementSystem
         //REFRESH DATA
         public void RefreshData()
         {
-            if (InvokeRequired)
-            {
-                Invoke((MethodInvoker)RefreshData);
-                return;
-            }
+            //if (InvokeRequired)
+            //{
+            //    Invoke((MethodInvoker)RefreshData);
+            //    return;
+            //}
             displayEventsData();
         }
 
@@ -61,8 +63,14 @@ namespace EventManagementSystem
                             DataTable eventsTable = new DataTable();
                             adapter.Fill(eventsTable);
 
-                            // Bind the data to the DataGridView
+                            // Clear the old DataSource
+                            eventsDataGrid.DataSource = null;
+
+                            // Bind the new DataSource
                             eventsDataGrid.DataSource = eventsTable;
+
+                            // Refresh the DataGridView to apply changes
+                            eventsDataGrid.Refresh();
                         }
                     }
                 }
@@ -80,7 +88,7 @@ namespace EventManagementSystem
 
 
             //ADD NEW EVENT
-            private void addEvent_addBtn_Click(object sender, EventArgs e)
+            private async void addEvent_addBtn_Click(object sender, EventArgs e)
             {
                 var eventName = eventName_input.Text.Trim();
                 var eventDesc = eventDesc_input.Text.Trim();
@@ -171,8 +179,9 @@ namespace EventManagementSystem
                                         , "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     clearFields();
-                                    RefreshData();
-                                }
+                                    // Refresh the AddEvent control in the MainForm
+                                    mainForm.RefreshAddEventControl();
+                            }
                             }
                         }
                     }

@@ -51,9 +51,7 @@ namespace EventManagementSystem
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.eventPrice_input = new System.Windows.Forms.TextBox();
             this.eventPrice_label = new System.Windows.Forms.Label();
-            this.eventEDate_input = new System.Windows.Forms.DateTimePicker();
             this.eventSDate_input = new System.Windows.Forms.DateTimePicker();
-            this.eventEDate_label = new System.Windows.Forms.Label();
             this.clearAllFields_btn = new System.Windows.Forms.Button();
             this.deleteEvent_btn = new System.Windows.Forms.Button();
             this.updateEvent_btn = new System.Windows.Forms.Button();
@@ -269,9 +267,7 @@ namespace EventManagementSystem
             this.bottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bottomPanel.Controls.Add(this.eventPrice_input);
             this.bottomPanel.Controls.Add(this.eventPrice_label);
-            this.bottomPanel.Controls.Add(this.eventEDate_input);
             this.bottomPanel.Controls.Add(this.eventSDate_input);
-            this.bottomPanel.Controls.Add(this.eventEDate_label);
             this.bottomPanel.Controls.Add(this.clearAllFields_btn);
             this.bottomPanel.Controls.Add(this.deleteEvent_btn);
             this.bottomPanel.Controls.Add(this.updateEvent_btn);
@@ -313,16 +309,6 @@ namespace EventManagementSystem
             this.eventPrice_label.TabIndex = 22;
             this.eventPrice_label.Text = "Price:";
             // 
-            // eventEDate_input
-            // 
-            this.eventEDate_input.Location = new System.Drawing.Point(522, 129);
-            this.eventEDate_input.MaxDate = new System.DateTime(2025, 4, 30, 0, 0, 0, 0);
-            this.eventEDate_input.MinDate = new System.DateTime(2024, 12, 25, 23, 59, 0, 0);
-            this.eventEDate_input.Name = "eventEDate_input";
-            this.eventEDate_input.Size = new System.Drawing.Size(217, 22);
-            this.eventEDate_input.TabIndex = 21;
-            this.eventEDate_input.Value = new System.DateTime(2024, 12, 25, 23, 59, 0, 0);
-            // 
             // eventSDate_input
             // 
             this.eventSDate_input.Location = new System.Drawing.Point(522, 84);
@@ -332,18 +318,6 @@ namespace EventManagementSystem
             this.eventSDate_input.Size = new System.Drawing.Size(217, 22);
             this.eventSDate_input.TabIndex = 20;
             this.eventSDate_input.Value = new System.DateTime(2024, 12, 25, 23, 59, 59, 0);
-            // 
-            // eventEDate_label
-            // 
-            this.eventEDate_label.AutoSize = true;
-            this.eventEDate_label.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.eventEDate_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(24)))));
-            this.eventEDate_label.Location = new System.Drawing.Point(441, 132);
-            this.eventEDate_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.eventEDate_label.Name = "eventEDate_label";
-            this.eventEDate_label.Size = new System.Drawing.Size(73, 18);
-            this.eventEDate_label.TabIndex = 18;
-            this.eventEDate_label.Text = "End Date:";
             // 
             // clearAllFields_btn
             // 
@@ -600,8 +574,6 @@ namespace EventManagementSystem
         private System.Windows.Forms.Button addEvent_btn;
         private System.Windows.Forms.Button eventPhoto_import_btn;
         private System.Windows.Forms.PictureBox eventPhoto;
-        private System.Windows.Forms.Label eventEDate_label;
-        private System.Windows.Forms.DateTimePicker eventEDate_input;
         private System.Windows.Forms.DateTimePicker eventSDate_input;
         private System.Windows.Forms.TextBox eventPrice_input;
         private System.Windows.Forms.Label eventPrice_label;

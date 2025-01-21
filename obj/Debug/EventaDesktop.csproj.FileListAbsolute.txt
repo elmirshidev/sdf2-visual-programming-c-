@@ -11,5 +11,5 @@ C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.AddEve
 C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.MainForm.resources
 C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.RegisterForm.resources
 C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.Dashboard.resources
-C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventaDesktop.ViewEvents.resources
 C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.LoginForm.resources
+C:\Users\Elmir\source\repos\EventaDesktop\obj\Debug\EventManagementSystem.ViewEvents.resources

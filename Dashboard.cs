@@ -18,13 +18,29 @@ namespace EventManagementSystem
 
         public Dashboard()
         {
-
-            DisplayAllAttendees();
             InitializeComponent();
+
+            this.Load += Dashboard_Load; // Hook up the Load event
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            DisplayAllAttendees();
             displayTotalEvents();
             displayTotalAttendees();
             displayTotalMoney();
         }
+        public void ReloadDashboard()
+        {
+            DisplayAllAttendees();
+            displayTotalEvents();
+            displayTotalAttendees();
+            displayTotalMoney();
+        }
+
+
+
+
 
         public void RefreshData()
         {
@@ -39,13 +55,25 @@ namespace EventManagementSystem
 
         public void DisplayAllAttendees()
         {
+            if (connect == null)
+            {
+                MessageBox.Show("Database connection is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (UserData.UserId == 0)
+            {
+                MessageBox.Show("User ID is not set. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (connect.State == ConnectionState.Closed)
             {
                 try
                 {
                     connect.Open();
-                    string getAllAttendeesQuery = "SELECT * FROM event_attendees WHERE event_id in (SELECT id FROM events WHERE created_by = @userId)";
-                    using (SqlCommand getAllAttendees= new SqlCommand(getAllAttendeesQuery, connect))
+                    string getAllAttendeesQuery = "SELECT * FROM event_attendees WHERE event_id IN (SELECT id FROM events WHERE created_by = @userId)";
+                    using (SqlCommand getAllAttendees = new SqlCommand(getAllAttendeesQuery, connect))
                     {
                         getAllAttendees.Parameters.AddWithValue("@userId", UserData.UserId);
 
@@ -54,22 +82,29 @@ namespace EventManagementSystem
                             DataTable atdsTable = new DataTable();
                             adapter.Fill(atdsTable);
 
-                            // Bind the data to the DataGridView
-                            atdsGridView.DataSource = atdsTable;
+                            if (atdsGridView != null)
+                            {
+                                atdsGridView.DataSource = atdsTable;
+                                atdsGridView.Refresh();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Data grid view is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
                     connect.Close();
                 }
-
             }
         }
+
 
         public void displayTotalEvents()
         {

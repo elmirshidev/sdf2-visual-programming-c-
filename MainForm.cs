@@ -23,22 +23,50 @@ namespace EventManagementSystem
             InitializeComponent();
 
             dashboardControl = new Dashboard();
-            addEventControl = new AddEvent();
+            addEventControl = new AddEvent(this);
             viewEventsControl = new ViewEvents();
 
-            //default open panel is dashboard control
-            mainForm_panel.Controls.Add(dashboardControl);
+            // Set the default panel to dashboard
+            LoadUserControl(dashboardControl);
 
         }
 
-        //helper function for removing current panel and adding requested one
         private void LoadUserControl(UserControl userControl)
         {
             mainForm_panel.Controls.Clear();
-            //fill parent's available size
+
+            // Trigger refresh methods if available
+            if (userControl is Dashboard dashboard)
+            {
+                dashboard.ReloadDashboard();
+            }
+            //else if (userControl is ViewEvents viewEvents)
+            //{
+            //    viewEvents.ReloadEvents();
+            //}
+            else if (userControl is AddEvent addEvent)
+            {
+                addEvent.displayEventsData();
+                addEvent.clearFields();
+            }
+
             userControl.Dock = DockStyle.Fill;
             mainForm_panel.Controls.Add(userControl);
         }
+
+        public void RefreshAddEventControl()
+        {
+            // Remove the existing AddEvent control
+            mainForm_panel.Controls.Remove(addEventControl);
+
+            // Reinitialize AddEvent and add it back
+            addEventControl = new AddEvent(this); // Pass `this` if MainForm is required in AddEvent
+            addEventControl.Dock = DockStyle.Fill;
+
+            // Add the control back to the panel
+            mainForm_panel.Controls.Add(addEventControl);
+        }
+
 
 
         private void exit_Click(object sender, EventArgs e)
@@ -53,6 +81,7 @@ namespace EventManagementSystem
 
             if(check == DialogResult.Yes)
             {
+                UserData.Clear();
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
                 this.Hide();
